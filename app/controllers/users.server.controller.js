@@ -132,7 +132,7 @@ exports.delete = function(req, res, next){
 	})
 };
 
-/*exports.saveOAuthUserProfile = function(req, profile, done){
+exports.saveOAuthUserProfile = function(req, profile, done){
 	User.findOne({
 		provider: profile.provider,
 		providerId: profile.providerId
@@ -152,7 +152,7 @@ exports.delete = function(req, res, next){
 
 						user.save(function(err){
 							if (err){
-								var message = _this.getErrorMessage(err);
+								var message = getErrorMessage(err);
 
 								req.flash('error', message);
 								return res.redirect('/signup');
@@ -162,8 +162,8 @@ exports.delete = function(req, res, next){
 						});
 					});
 			}else{
-				return done (err,user);
+				return done (err, user);
 			}
 		 }
 		});
-};*/
+};
