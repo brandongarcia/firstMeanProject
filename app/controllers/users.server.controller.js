@@ -132,7 +132,7 @@ exports.delete = function(req, res, next){
 	})
 };
 
-exports.saveOAuthUserProfile = function(req, profile, done){
+exports.saveOAuthUserProfile = function(req, profile, done){ 
 	User.findOne({
 		provider: profile.provider,
 		providerId: profile.providerId
@@ -152,10 +152,10 @@ exports.saveOAuthUserProfile = function(req, profile, done){
 
 						user.save(function(err){
 							if (err){
-								var message = _this.getErrorMessage(err);
+								var message = getErrorMessage(err);
 
 								req.flash('error', message);
-								return res.redirect('/signup');
+								return req.res.redirect('/signup');
 							}
 	
 							return done(err, user);
