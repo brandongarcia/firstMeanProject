@@ -20,8 +20,6 @@ app.get('/oauth/facebook', passport.authenticate('facebook', {
 	failureRedirect: '/signin'
 	}));
 
-//app.get('/oauth/facebook', function(){debugger;});
-
 app.get('/oauth/facebook/callback', passport.authenticate('facebook',
 {
 	failureRedirect: '/signin',

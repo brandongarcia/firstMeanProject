@@ -16,12 +16,21 @@ module.exports = function(){
 		providerData.accessToken = accessToken;
 		providerData.refreshToken = refreshToken;
 
+		var facebookUserName = function(possibleUserName, number){
+			var combine = possibleUserName.split(" ").join("");
+			if(combine){
+				return combine + number;
+			}else{
+				return facebookUserName(possibleUserName, number + 1)
+			}
+		};
+
 		var providerUserProfile = {
 			firstName: profile.name.givenName,
 			lastName: profile.name.familyName,
 			fullName: profile.displayName,
 			email: profile.username,
-			username: profile.username,
+			username: facebookUserName(providerData.name,0),
 			provider: 'facebook',
 			providerId: profile.id,
 			providerData: providerData

@@ -132,7 +132,7 @@ exports.delete = function(req, res, next){
 	})
 };
 
-exports.saveOAuthUserProfile = function(req, profile, done){ 
+exports.saveOAuthUserProfile = function(req, profile, done){
 	User.findOne({
 		provider: profile.provider,
 		providerId: profile.providerId
